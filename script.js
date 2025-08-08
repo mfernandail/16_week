@@ -1,33 +1,46 @@
 const btnGenetare = document.getElementById('generateBtn')
-const numCharacter = document.getElementById('numCharacter')
-const includeNumbers = document.getElementById('includeNumbers')
+const numCharacterInput = document.getElementById('numCharacter')
+const includeNumbersCheck = document.getElementById('includeNumbers')
+const result = document.getElementById('result')
+
+const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+const LOWERCASE = UPPERCASE.map((letter) => letter.toLowerCase())
+const NUMBERS = '0123456789'.split('')
+const SYMBOLS = '!@#$%^&*()-_=+{}[]|:;<>,.?/'.split('')
 
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const numbers = '1234567890'
 
+let includeNumbers
+
+let numCharacter = 52
+
 btnGenetare.addEventListener('click', generatePassword)
 
 function generatePassword() {
-  if (Number(numCharacter.value) <= 0) {
+  let pool = []
+  let password = ''
+
+  if (
+    Number(numCharacterInput.value) < 4 ||
+    Number(numCharacterInput.value) >= 21
+  ) {
+    alert(
+      'The password must be at least 4 characters and less than 21 characters long'
+    )
     return
   }
 
-  let password = ''
-  let indexPass = []
-
-  for (let i = 0; i < Number(numCharacter.value); i++) {
-    indexPass.push(Math.floor(Math.random() * 26))
+  if (includeNumbersCheck.checked) {
+    pool = [...UPPERCASE, ...LOWERCASE, ...SYMBOLS, ...NUMBERS]
+  } else {
+    pool = [...UPPERCASE, ...SYMBOLS, ...LOWERCASE]
   }
 
-  const charactersArr = characters.split('')
-  const numbersArr = numbers.split('')
+  for (let i = 0; i < Number(numCharacterInput.value); i++) {
+    const randomIndex = Math.floor(Math.random() * pool.length)
+    password += pool[randomIndex]
+  }
 
-  password = indexPass.map((i) => {
-    return charactersArr[i]
-  })
-
-  console.log(indexPass)
-  console.log(password)
-
-  //console.log(charactersArr, numbersArr)
+  result.textContent = password
 }
