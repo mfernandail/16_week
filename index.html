@@ -39,20 +39,32 @@
         year.
       </p>
     </header>
-
+    
+    
     <main>
-      <h1>Title</h1>
+      <h1>Secure Password Generator</h1>
+      <h2>A simple and minimalist password generator that allows you to customize the length and choose whether to include numbers, ensuring secure and unique passwords every time.</h2>
 
-      <input
-        type="number"
-        max="20"
-        required
-        name="numCharacter"
-        id="numCharacter"
-      />
-      <input type="checkbox" id="includeNumbers" />
-      <label for="includeNumbers">Incluir números</label>
-      <button id="generateBtn">🔐 Generate Password</button>
+      <section class="inputsAndResult">
+        <label for="numCharacter">Password length</label>
+        <input
+          type="number"
+          max="20"
+          required
+          name="numCharacter"
+          id="numCharacter"
+          value="10"
+        />
+
+        <div class="checkNumners">
+          <input type="checkbox" id="includeNumbers" />
+          <label for="includeNumbers">Include numbers</label>
+        </div>
+
+        <button id="generateBtn">🔐 Generate Password</button>
+
+        <p class="result" id="result"></p>
+      </section>
     </main>
 
     <footer>
