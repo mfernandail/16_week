@@ -45,10 +45,11 @@
       <h1>Secure Password Generator</h1>
       <h2>A simple and minimalist password generator that allows you to customize the length and choose whether to include numbers, ensuring secure and unique passwords every time.</h2>
 
-      <section class="inputsAndResult">
+      <section class="inputsAndResult" id="inputsAndResult">
         <label for="numCharacter">Password length</label>
         <input
           type="number"
+          min="4" 
           max="20"
           required
           name="numCharacter"
@@ -61,9 +62,10 @@
           <label for="includeNumbers">Include numbers</label>
         </div>
 
-        <button id="generateBtn">🔐 Generate Password</button>
+        <button id="generateBtn" class="generateBtn">🔐 Generate Password</button>
 
-        <p class="result" id="result"></p>
+        <button class="result" id="result"></button>
+        <p class="msgCopy" id="msgCopy"></p>
       </section>
     </main>
 
