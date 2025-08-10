@@ -21,3 +21,4 @@ Una aplicación desarrollada en JavaScript puro que permite generar contraseñas
 - Validaciones de entrada y manejo de eventos.
 - Mejores prácticas de accesibilidad para formularios.
 - Uso del portapapeles con `navigator.clipboard`.
+- Caracteres, numeros y simbolos.
